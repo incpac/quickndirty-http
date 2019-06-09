@@ -20,7 +20,7 @@ jobs:
             export VERSION=$(git log --format=%B -n1)
             export GOOS=darwin
             export GOARCH=amd64
-            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH"
+            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH
       - run:
           name: "Build Linux"
           command: |
@@ -28,7 +28,7 @@ jobs:
             export VERSION=$(git log --format=%B -n1)
             export GOOS=linux
             export GOARCH=amd64
-            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH"
+            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH
       - run:
           name: "Build Windows"
           command: |
@@ -36,7 +36,7 @@ jobs:
             export VERSION=$(git log --format=%B -n1)
             export GOOS=windows
             export GOARCH=amd64
-            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH"
+            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH
       - run:
           name: "Publish to Github"
           command: |
@@ -64,7 +64,7 @@ jobs:
             export VERSION=$(git log --format=%B -n1)
             export GOOS=darwin
             export GOARCH=amd64
-            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH"
+            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH
       - run:
           name: "Build Linux"
           command: |
@@ -72,7 +72,7 @@ jobs:
             export VERSION=$(git log --format=%B -n1)
             export GOOS=linux
             export GOARCH=amd64
-            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH"
+            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH
       - run:
           name: "Build Windows"
           command: |
@@ -80,7 +80,7 @@ jobs:
             export VERSION=$(git log --format=%B -n1)
             export GOOS=windows
             export GOARCH=amd64
-            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH"
+            go build -ldflags "-X main.Version=$VERSION" -o build/qndhttp-$GOOS-$GOARCH
 workflows:
   version: 2
   build-and-release:
