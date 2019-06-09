@@ -12,7 +12,7 @@ jobs:
             cd "$GOPATH/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
             go get -v
             dep ensure
-            md build
+            mkdir build
       - run:
           name: "Build MacOS"
           command: |
