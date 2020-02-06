@@ -15,6 +15,8 @@ var bindAddress string
 var sslCertPath string
 var sslPrivateKeyPath string
 
+var logfile string
+
 var Version string
 
 func serve(cmd *cobra.Command, args []string) {
@@ -62,6 +64,12 @@ func main() {
 			if showVersion {
 				fmt.Printf("%s\n", Version)
 			} else {
+				if logfile != "" {
+					f, _ := os.OpenFile(logfile, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0666)
+					defer f.Close()
+					log.SetOutput(f)
+				}
+
 				serve(cmd, args)
 			}
 		},
@@ -72,6 +80,7 @@ func main() {
 	command.Flags().BoolVarP(&showVersion, "version", "v", false, "display the version")
 	command.Flags().StringVarP(&sslCertPath, "sslcert", "", "", "SSL certificate for HTTPS traffic")
 	command.Flags().StringVarP(&sslPrivateKeyPath, "sslkey", "", "", "Private key for the SSL certificate")
+	command.Flags().StringVarP(&logfile, "logfile", "", "", "File to write logs to")
 
 	if err := command.Execute(); err != nil {
 		log.Fatal(err)
